@@ -3,18 +3,34 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CreateEmployeeComponent } from './create-employee/create-employee.component';
-import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { CreatePatrolComponent } from './create-patrol/create-patrol.component';
+import { PatrolDetailsComponent } from './patrol-details/patrol-details.component';
+import { PatrolListComponent } from './patrol-list/patrol-list.component';
+import { UpdatePatrolComponent } from './update-patrol/update-patrol.component';
+import { CreateVehicleComponent } from './create-vehicle/create-vehicle.component';
+import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
+import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
+import { UpdateVehicleComponent } from './update-vehicle/update-vehicle.component';
+import { CreatePoliceStationComponent } from './create-policeStation/create-policeStation.component';
+import { PoliceStationDetailsComponent } from './policeStation-details/policeStation-details.component';
+import { PoliceStationListComponent } from './policeStation-list/policeStation-list.component';
+import { UpdatePoliceStationComponent } from './update-policeStation/update-policeStation.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CreateEmployeeComponent,
-    EmployeeDetailsComponent,
-    EmployeeListComponent,
-    UpdateEmployeeComponent
+    CreatePatrolComponent,
+    PatrolDetailsComponent,
+    PatrolListComponent,
+    UpdatePatrolComponent,
+    CreateVehicleComponent,
+    VehicleDetailsComponent,
+    VehicleListComponent,
+    UpdateVehicleComponent,
+    CreatePoliceStationComponent,
+    PoliceStationDetailsComponent,
+    PoliceStationListComponent,
+    UpdatePoliceStationComponent
   ],
   imports: [
     BrowserModule,
