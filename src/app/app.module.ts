@@ -16,6 +16,7 @@ import { CreatePoliceStationComponent } from './create-policeStation/create-poli
 import { PoliceStationDetailsComponent } from './policeStation-details/policeStation-details.component';
 import { PoliceStationListComponent } from './policeStation-list/policeStation-list.component';
 import { UpdatePoliceStationComponent } from './update-policeStation/update-policeStation.component';
+import { CreateMapComponent } from './map-component/create-map.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { UpdatePoliceStationComponent } from './update-policeStation/update-poli
     CreatePoliceStationComponent,
     PoliceStationDetailsComponent,
     PoliceStationListComponent,
-    UpdatePoliceStationComponent
+    UpdatePoliceStationComponent,
+    CreateMapComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ import { PoliceStationDetailsComponent } from './policeStation-details/policeSta
 import { CreatePoliceStationComponent } from './create-policeStation/create-policeStation.component';
 import { PoliceStationListComponent } from './policeStation-list/policeStation-list.component';
 import { UpdatePoliceStationComponent } from './update-policeStation/update-policeStation.component';
+import { CreateMapComponent } from './map-component/create-map.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'patrol', pathMatch: 'full' },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'addPoliceStation', component: CreatePoliceStationComponent },
   { path: 'updatePoliceStation/:id', component: UpdatePoliceStationComponent },
   { path: 'policeStationDetails/:id', component: PoliceStationDetailsComponent },
+  { path: 'maps', component: CreateMapComponent },
 ];
 
 @NgModule({
