@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h2>Vehicle List</h2>
+    <h2>Police Station List</h2>
   </div>
   <div class="panel-body">
     <table class="table table-striped">
@@ -16,12 +16,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let policeStation of policeStations | async">
-          <td>{{policeStation.id}}</td>
-          <td>{{policeStation.name}}</td>
-          <td>{{policeStation.location}}</td>
-          <td>{{policeStation.latitude}}</td>
-          <td>{{policeStation.longitude}}</td>
+        <tr *ngFor="let patrol of patrols | async">
+          <td>{{patrol.id}}</td>
+          <td>{{patrol.name}}</td>
+          <td>{{patrol.location}}</td>
+          <td>{{patrol.latitude}}</td>
+          <td>{{patrol.longitude}}</td>
           <td><button (click)="deletePoliceStation(policeStation.id)" class="btn btn-danger">Delete</button>
               <button (click)="updatePoliceStation(policeStation.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
               <button (click)="policeStationDetails(policeStation.id)" class="btn btn-info" style="margin-left: 10px">Details</button>

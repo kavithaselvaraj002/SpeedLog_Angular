@@ -9,6 +9,8 @@ export class PoliceStationService {
 
   private baseUrl = 'http://localhost:8081/policeStation';
 
+  private basePUrl = 'http://localhost:8081/policeStation/patrols';
+
   constructor(private http: HttpClient) { }
 
   getPoliceStation(id: number): Observable<any> {
@@ -28,6 +30,6 @@ export class PoliceStationService {
   }
 
   getPoliceStationsList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+    return this.http.get(`${this.basePUrl}`);
   }
 }

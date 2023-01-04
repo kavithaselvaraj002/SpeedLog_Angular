@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class VehicleService {
 
   private baseUrl = 'http://localhost:8081/vehicle';
+  private basePUrl = 'http://localhost:8081/vehicle/all';
 
   constructor(private http: HttpClient) { }
 
@@ -28,6 +29,6 @@ export class VehicleService {
   }
 
   getVehiclesList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+    return this.http.get(`${this.basePUrl}`);
   }
 }
