@@ -15,26 +15,52 @@ import { Observable } from "rxjs";
 export class CreateMapComponent implements OnInit {
   title = 'google-maps';
   map: google.maps.Map;
-  locations: Observable<Vehicle[]>;
+  locations: Vehicle[];
   //private map  = google.maps.Map;
   constructor(private vehicleService: VehicleService,
     private router: Router) {}
-    getItems (vehicleName: string) {
-        this.vehicleService.getVehicleByNumber(vehicleName). subscribe (data => {
-          const locations=data;
-        },
-        error => console.log(error));
-   }
+
+    getVehicleByName(vehicleName: string) {
+      this.vehicleService.getVehicleByNumber(vehicleName)
+        .subscribe(
+          data => {
+            this.locations = data;
+            console.log(data);
+            for (let location of this.locations) {
+              // The marker's position property needs an object like { lat: 0, lng: 0 };
+              // Number(location.latitude) is there to convert the string to a number, but if it's a number already, there's no need to cast it further.
+              let latLng = {lat: Number(location.lat), lng: Number(location.lng)};
+              const marker3 = new google.maps.Marker({
+                position:latLng,
+                map:this.map,
+                title:"test2",
+                label: {
+                  text:"POLICE",
+                  color: "RED",
+                  fontWeight:"bold"
+              },
+                animation: google.maps.Animation.DROP,
+                icon: 'http://maps.google.com/mapfiles/kml/shapes/cabs.png'
+              // icon: '//developers.google.com/maps/documentation/javascript/examples/full/images/cabs.png'
+              })
+            }
+           // this.reloadData();
+          },
+          error => console.log(error));
+    }
+
   ngOnInit() {
-    this.reloadData();
+    this.getVehicleByName("etest2");
+   // this.reloadData();
     let loader = new Loader({
-      apiKey: 'API KEY'
+      apiKey: 'API-KEY'
+      
 
     })
     
 
    // http://localhost:8081/vehicle/location?carNumber=etest2
-    const locations = [
+    const location1s = [
       { lat: 19.30243841662244, lng: -81.36762660797876 },
       { lat: 19.28793772224212, lng: -81.38350528567302 },
       { lat: 19.286317453137645, lng: -81.36522334865207 },
@@ -43,8 +69,10 @@ export class CreateMapComponent implements OnInit {
     //const locations:any;
 
     
-    //this.locations = this.locations;
 
+    
+    //this.locations = this.locations;
+console.log("location"+this.locations)
     loader.load().then(()=>{
       const location = {
         lat:19.289193419745192,
@@ -67,24 +95,6 @@ export class CreateMapComponent implements OnInit {
        // icon: '../assets/images/caricon.png'
        icon:'http://maps.google.com/mapfiles/kml/shapes/motorcycling.png'
       })
-      for (let location of locations) {
-        // The marker's position property needs an object like { lat: 0, lng: 0 };
-        // Number(location.latitude) is there to convert the string to a number, but if it's a number already, there's no need to cast it further.
-        let latLng = {lat: Number(location.lat), lng: Number(location.lng)};
-        const marker3 = new google.maps.Marker({
-          position:latLng,
-          map:this.map,
-          title:"test2",
-          label: {
-            text:"POLICE",
-            color: "RED",
-            fontWeight:"bold"
-        },
-          animation: google.maps.Animation.DROP,
-          icon: 'http://maps.google.com/mapfiles/kml/shapes/cabs.png'
-        // icon: '//developers.google.com/maps/documentation/javascript/examples/full/images/cabs.png'
-        })
-      }
         // Set the position and title
 
 
@@ -169,9 +179,6 @@ export class CreateMapComponent implements OnInit {
    
     
   }
-  reloadData() {
-  // this.locations = this.vehicleService.getVehicleByNumber("etest2");
-  }
   animateCircle(line: google.maps.Polyline) {
     let count = 0;
   
@@ -187,4 +194,5 @@ export class CreateMapComponent implements OnInit {
   
 
 }
+
 
