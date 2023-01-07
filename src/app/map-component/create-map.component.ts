@@ -29,7 +29,6 @@ export class CreateMapComponent implements OnInit {
     this.reloadData();
     let loader = new Loader({
       apiKey: 'API KEY'
-     // apiKey: 'AIzaSyBjoXNlrFTPU33iUIJNLetHerQsQHY0An0'
 
     })
     
