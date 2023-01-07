@@ -9,6 +9,7 @@ export class VehicleService {
 
   private baseUrl = 'http://localhost:8081/vehicle';
   private basePUrl = 'http://localhost:8081/vehicle/all';
+  private getUrl ='http://localhost:8081/vehicle/location?carNumber=etest2'
 
   constructor(private http: HttpClient) { }
 
@@ -31,4 +32,9 @@ export class VehicleService {
   getVehiclesList(): Observable<any> {
     return this.http.get(`${this.basePUrl}`);
   }
+
+  getVehicleByNumber(carNumber:string):  Observable<any> {
+    return this.http.get(`${this.getUrl}`);
+  }
+
 }

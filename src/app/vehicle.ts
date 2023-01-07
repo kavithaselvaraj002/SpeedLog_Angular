@@ -6,4 +6,6 @@ export class Vehicle {
   description: string;
   ownerName: string;
   vehicleDrivingLicence: string;
+  lng: number;
+  lat: number
 }

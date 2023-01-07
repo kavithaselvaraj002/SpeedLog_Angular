@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Loader} from '@googlemaps/js-api-loader'
+import { VehicleService } from "../vehicle.service";
 import { truncateSync } from 'fs';
+import { Vehicle } from "../vehicle";
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-create-map',
@@ -11,21 +15,36 @@ import { truncateSync } from 'fs';
 export class CreateMapComponent implements OnInit {
   title = 'google-maps';
   map: google.maps.Map;
+  locations: Observable<Vehicle[]>;
   //private map  = google.maps.Map;
-
+  constructor(private vehicleService: VehicleService,
+    private router: Router) {}
+    getItems (vehicleName: string) {
+        this.vehicleService.getVehicleByNumber(vehicleName). subscribe (data => {
+          const locations=data;
+        },
+        error => console.log(error));
+   }
   ngOnInit() {
+    this.reloadData();
     let loader = new Loader({
       apiKey: 'API KEY'
-
+     // apiKey: 'AIzaSyBjoXNlrFTPU33iUIJNLetHerQsQHY0An0'
 
     })
+    
 
+   // http://localhost:8081/vehicle/location?carNumber=etest2
     const locations = [
       { lat: 19.30243841662244, lng: -81.36762660797876 },
       { lat: 19.28793772224212, lng: -81.38350528567302 },
       { lat: 19.286317453137645, lng: -81.36522334865207 },
       { lat: 19.28631632614686, lng: -81.38736766673381 }
     ];
+    //const locations:any;
+
+    
+    //this.locations = this.locations;
 
     loader.load().then(()=>{
       const location = {
@@ -127,13 +146,32 @@ export class CreateMapComponent implements OnInit {
         ],
         map: this.map,
       });
-    
+      const infoWindowOptions = {
+        content: 'Display some Info',
+        position: {lat:19.29810454482719, lng: -81.35758441835928},
+        shouldFocus:true
+      }
+    const infoWindow = new google.maps.InfoWindow(infoWindowOptions)
+
+    const infoWindowOpenOptions = {
+      map: this.map,
+      anchor:marker
+    }
+    infoWindow.open(infoWindowOpenOptions);
+
+    setTimeout(()=> {
+      infoWindow.close();
+    },3000);
+
 
       
     })
     
    
     
+  }
+  reloadData() {
+  // this.locations = this.vehicleService.getVehicleByNumber("etest2");
   }
   animateCircle(line: google.maps.Polyline) {
     let count = 0;
