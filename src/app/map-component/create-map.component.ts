@@ -16,9 +16,39 @@ export class CreateMapComponent implements OnInit {
   title = 'google-maps';
   map: google.maps.Map;
   locations: Vehicle[];
+  allLocations: Vehicle[];
   //private map  = google.maps.Map;
   constructor(private vehicleService: VehicleService,
     private router: Router) {}
+    getVehicleByLocations() {
+      this.vehicleService.getVehicleByLocations()
+        .subscribe(
+          data => {
+            this.allLocations = data;
+            console.log(data);
+            for (let locationData of this.allLocations) {
+              // The marker's position property needs an object like { lat: 0, lng: 0 };
+              // Number(location.latitude) is there to convert the string to a number, but if it's a number already, there's no need to cast it further.
+              let latLngData = {lat: Number(locationData.lat), lng: Number(locationData.lng)};
+              const marker4 = new google.maps.Marker({
+                position:latLngData,
+                map:this.map,
+                title:"test2",
+                label: {
+                  text:"POLICE",
+                  color: "RED",
+                  fontWeight:"bold"
+              },
+                animation: google.maps.Animation.DROP,
+                icon: 'http://maps.google.com/mapfiles/kml/shapes/cabs.png'
+              // icon: '//developers.google.com/maps/documentation/javascript/examples/full/images/cabs.png'
+              })
+            }
+           // this.reloadData();
+          },
+          error => console.log(error));
+    }
+
 
     getVehicleByName(vehicleName: string) {
       this.vehicleService.getVehicleByNumber(vehicleName)
@@ -50,12 +80,12 @@ export class CreateMapComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.getVehicleByName("etest2");
+   // this.getVehicleByName("etest2");
+    this.getVehicleByLocations();
    // this.reloadData();
     let loader = new Loader({
       apiKey: 'API-KEY'
       
-
     })
     
 
@@ -194,5 +224,6 @@ console.log("location"+this.locations)
   
 
 }
+
 
 

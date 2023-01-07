@@ -9,7 +9,8 @@ export class VehicleService {
 
   private baseUrl = 'http://localhost:8081/vehicle';
   private basePUrl = 'http://localhost:8081/vehicle/all';
-  private getUrl ='http://localhost:8081/vehicle/location?carNumber=etest2'
+  private getUrl ='http://localhost:8081/vehicle/location?carNumber=etest2';
+  private locationUrl: 'http://localhost:8081/vehicle/locations';
 
   constructor(private http: HttpClient) { }
 
@@ -37,4 +38,7 @@ export class VehicleService {
     return this.http.get(`${this.getUrl}`);
   }
 
+  getVehicleByLocations():Observable<any> {
+    return this.http.get('http://localhost:8081/vehicle/locations');
+  }
 }
