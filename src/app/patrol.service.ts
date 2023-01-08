@@ -30,4 +30,9 @@ export class PatrolService {
   getPatrolsList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
+  getPatrolsForPoliceStation(policeStationName:any):Observable<any> {
+    return this.http.get('http://localhost:8081/policeStation/patrols?policeStationName='+`${policeStationName}`)
+
+  }
+
 }

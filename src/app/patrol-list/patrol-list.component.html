@@ -8,7 +8,7 @@
         <tr>
           <th>Id</th>
           <th>CarNumber</th>
-          <th>Email</th>
+          <th>stationName</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -16,7 +16,7 @@
         <tr *ngFor="let patrol of patrols | async">
           <td>{{patrol.id}}</td>
           <td>{{patrol.carNumber}}</td>
-          <td>{{patrol.emailId}}</td>
+          <td>{{patrol.stationName}}</td>
           <td><button (click)="deletePatrol(patrol.id)" class="btn btn-danger">Delete</button>
               <button (click)="updatePatrol(patrol.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
               <button (click)="patrolDetails(patrol.id)" class="btn btn-info" style="margin-left: 10px">Details</button>

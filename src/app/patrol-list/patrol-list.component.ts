@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class PatrolListComponent implements OnInit {
   patrols: Observable<Patrol[]>;
-
+  stationName: String;
   constructor(private patrolService: PatrolService,
     private router: Router) {}
 
@@ -21,7 +21,9 @@ export class PatrolListComponent implements OnInit {
   }
 
   reloadData() {
-    this.patrols = this.patrolService.getPatrolsList();
+  //  this.patrols = this.patrolService.getPatrolsList();
+  this.stationName = localStorage.getItem("stationName")
+  this.patrols = this.patrolService.getPatrolsForPoliceStation(this.stationName);
   }
 
   deletePatrol(id: number) {
