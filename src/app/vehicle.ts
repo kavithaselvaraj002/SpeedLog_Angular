@@ -8,4 +8,5 @@ export class Vehicle {
   vehicleDrivingLicence: string;
   lng: number;
   lat: number
+  vehicleNumber: string
 }
