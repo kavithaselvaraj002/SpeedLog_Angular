@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Loader} from '@googlemaps/js-api-loader'
 import { VehicleService } from "../vehicle.service";
-import { truncateSync } from 'fs';
+//import { truncateSync } from 'fs';
 import { Vehicle } from "../vehicle";
 import { analyzeAndValidateNgModules } from '@angular/compiler';
-import { Observable } from "rxjs";
+import { interval, Observable } from "rxjs";
 
 @Component({
   selector: 'app-create-map',
@@ -17,9 +17,13 @@ export class CreateMapComponent implements OnInit {
   map: google.maps.Map;
   locations: Vehicle[];
   allLocations: Vehicle[];
+  markers: google.maps.Marker[] = [];
+
   //private map  = google.maps.Map;
   constructor(private vehicleService: VehicleService,
-    private router: Router) {}
+    private router: Router) {
+
+    }
     getVehicleByLocations() {
       this.vehicleService.getVehicleByLocations()
         .subscribe(
@@ -35,14 +39,15 @@ export class CreateMapComponent implements OnInit {
                 map:this.map,
                 title:"test2",
                 label: {
-                  text:"POLICE",
+                  text:locationData.vehicleNumber,
                   color: "RED",
                   fontWeight:"bold"
               },
-                animation: google.maps.Animation.DROP,
+                animation: google.maps.Animation.BOUNCE,
                 icon: 'http://maps.google.com/mapfiles/kml/shapes/cabs.png'
               // icon: '//developers.google.com/maps/documentation/javascript/examples/full/images/cabs.png'
               })
+              this.markers.push(marker4);
             }
            // this.reloadData();
           },
@@ -69,7 +74,7 @@ export class CreateMapComponent implements OnInit {
                   color: "RED",
                   fontWeight:"bold"
               },
-                animation: google.maps.Animation.DROP,
+                animation: google.maps.Animation.BOUNCE,
                 icon: 'http://maps.google.com/mapfiles/kml/shapes/cabs.png'
               // icon: '//developers.google.com/maps/documentation/javascript/examples/full/images/cabs.png'
               })
@@ -81,7 +86,17 @@ export class CreateMapComponent implements OnInit {
 
   ngOnInit() {
    // this.getVehicleByName("etest2");
-    this.getVehicleByLocations();
+    const secondsCounter = interval(20000);
+// Subscribe to begin publishing values
+secondsCounter.subscribe(n => {
+  for (let i = 0; i < this.markers.length; i++) {
+    this.markers[i].setMap(null);
+  }
+  this.getVehicleByLocations();
+});
+
+     
+    
    // this.reloadData();
     let loader = new Loader({
       apiKey: 'API-KEY'
@@ -224,5 +239,3 @@ console.log("location"+this.locations)
   
 
 }
-
-
