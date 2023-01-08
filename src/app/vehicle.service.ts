@@ -11,8 +11,10 @@ export class VehicleService {
   private basePUrl = 'http://localhost:8081/vehicle/all';
   private getUrl ='http://localhost:8081/vehicle/location?carNumber=etest2';
   private locationUrl: 'http://localhost:8081/vehicle/locations';
-
+  private locUrl = 'http://localhost:8081/policeStation/vehicles'
+  private stationName: string;
   constructor(private http: HttpClient) { }
+  private data = {};  
 
   getVehicle(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
@@ -40,5 +42,24 @@ export class VehicleService {
 
   getVehicleByLocations():Observable<any> {
     return this.http.get('http://localhost:8081/vehicle/locations');
+  }
+  setOption(option, value) {      
+    this.data[option] = value;  
+  }  
+  
+  getOption() {  
+    return this.data;  
+  }  
+
+  getStationName():string{
+    return this.stationName;
+  }
+  setStationName(val: string){
+    this.stationName = val;
+  }
+
+  getVehiclesForPoliceStation(policeStationName:any):Observable<any> {
+    return this.http.get('http://localhost:8081/policeStation/vehicles?policeStationName='+`${policeStationName}`)
+
   }
 }

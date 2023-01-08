@@ -13,13 +13,16 @@ import { CreatePoliceStationComponent } from './create-policeStation/create-poli
 import { PoliceStationListComponent } from './policeStation-list/policeStation-list.component';
 import { UpdatePoliceStationComponent } from './update-policeStation/update-policeStation.component';
 import { CreateMapComponent } from './map-component/create-map.component';
+import { LoginComponent } from './login-component/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'patrol', pathMatch: 'full' },
+  //{ path: '', redirectTo: 'patrol', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'patrols', component: PatrolListComponent },
   { path: 'add', component: CreatePatrolComponent },
   { path: 'update/:id', component: UpdatePatrolComponent },
   { path: 'details/:id', component: PatrolDetailsComponent },
+ // { path: 'vehicles/:id', component: VehicleListComponent },
   { path: 'vehicles', component: VehicleListComponent },
   { path: 'addVehicle', component: CreateVehicleComponent },
   { path: 'updateVehicle/:id', component: UpdateVehicleComponent },
@@ -29,6 +32,7 @@ const routes: Routes = [
   { path: 'updatePoliceStation/:id', component: UpdatePoliceStationComponent },
   { path: 'policeStationDetails/:id', component: PoliceStationDetailsComponent },
   { path: 'maps', component: CreateMapComponent },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({

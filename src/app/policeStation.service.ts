@@ -11,6 +11,8 @@ export class PoliceStationService {
 
   private basePUrl = 'http://localhost:8081/policeStation/patrols';
 
+  private locationUrl = 'http://localhost:8081/policeStation/vehicles?policeStationName=test'
+
   constructor(private http: HttpClient) { }
 
   getPoliceStation(id: number): Observable<any> {
@@ -31,5 +33,9 @@ export class PoliceStationService {
 
   getPoliceStationsList(): Observable<any> {
     return this.http.get(`${this.basePUrl}`);
+  }
+  getVehiclesForPoliceStation(policeStationName:any):Observable<any> {
+    return this.http.get(`${this.locationUrl}/${policeStationName}`)
+
   }
 }

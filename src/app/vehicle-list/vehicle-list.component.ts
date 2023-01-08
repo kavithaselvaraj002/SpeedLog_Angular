@@ -3,7 +3,7 @@ import { Observable } from "rxjs";
 import { VehicleService } from "../vehicle.service";
 import { Vehicle } from "../vehicle";
 import { Component, OnInit } from "@angular/core";
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: "app-vehicle-list",
@@ -12,16 +12,20 @@ import { Router } from '@angular/router';
 })
 export class VehicleListComponent implements OnInit {
   patrols: Observable<Vehicle[]>;
-
-  constructor(private vehicleService: VehicleService,
+  stationName: String;
+  constructor(private route: ActivatedRoute,private vehicleService: VehicleService,
     private router: Router) {}
 
   ngOnInit() {
     this.reloadData();
+
+   // this.stationName = this.route.snapshot.params['stationName'];
   }
 
   reloadData() {
-    this.patrols = this.vehicleService.getVehiclesList();
+  //  this.patrols = this.vehicleService.getVehiclesList();
+  this.stationName = localStorage.getItem("stationName")
+  this.patrols = this.vehicleService.getVehiclesForPoliceStation(this.stationName);
   }
 
   deleteVehicle(id: number) {

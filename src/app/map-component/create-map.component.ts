@@ -226,4 +226,3 @@ console.log("location"+this.locations)
 }
 
 
-
