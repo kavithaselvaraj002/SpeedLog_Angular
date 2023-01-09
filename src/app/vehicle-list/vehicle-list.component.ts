@@ -42,7 +42,8 @@ export class VehicleListComponent implements OnInit {
     this.router.navigate(['details', id]);
   }
 
-  updateVehicle(id: number){
-    this.router.navigate(['update', id]);
+  viewLocation(carnumber: string){
+    localStorage.setItem("vehicleNumber",carnumber)
+    this.router.navigate(['map']);
   }
 }

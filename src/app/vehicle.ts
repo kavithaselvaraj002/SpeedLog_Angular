@@ -9,4 +9,5 @@ export class Vehicle {
   lng: number;
   lat: number
   vehicleNumber: string
+  vehicleName: string
 }

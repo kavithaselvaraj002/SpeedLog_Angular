@@ -32,7 +32,7 @@ export class PoliceStationService {
   }
 
   getPoliceStationsList(): Observable<any> {
-    return this.http.get(`${this.basePUrl}`);
+    return this.http.get(`${this.baseUrl}/stations`);
   }
   getVehiclesForPoliceStation(policeStationName:any):Observable<any> {
     return this.http.get(`${this.locationUrl}/${policeStationName}`)

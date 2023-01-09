@@ -16,6 +16,7 @@ import { CreatePoliceStationComponent } from './create-policeStation/create-poli
 import { PoliceStationDetailsComponent } from './policeStation-details/policeStation-details.component';
 import { PoliceStationListComponent } from './policeStation-list/policeStation-list.component';
 import { UpdatePoliceStationComponent } from './update-policeStation/update-policeStation.component';
+import { CreateSingleMapComponent } from './create-single-map-component/create-single-map.component';
 import { CreateMapComponent } from './map-component/create-map.component';
 import { LoginComponent } from './login-component/login.component';
 @NgModule({
@@ -34,7 +35,8 @@ import { LoginComponent } from './login-component/login.component';
     PoliceStationListComponent,
     UpdatePoliceStationComponent,
     CreateMapComponent,
-    LoginComponent
+    LoginComponent,
+    CreateSingleMapComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,4 @@
 export class Patrol {
-  id: number;
-  stationName: string;
+  stationname: string;
   carnumber: string;
 }
