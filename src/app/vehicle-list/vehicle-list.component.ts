@@ -13,10 +13,22 @@ import { Router,ActivatedRoute } from '@angular/router';
 export class VehicleListComponent implements OnInit {
   patrols: Observable<Vehicle[]>;
   stationName: String;
+  isStation: string;
+  vehicleName: string;
+  isVehicle: boolean;
+  isRequired:boolean;
+  isVehicleRequired:boolean;
   constructor(private route: ActivatedRoute,private vehicleService: VehicleService,
     private router: Router) {}
 
   ngOnInit() {
+    if(this.isStation==="true") {
+      this.isVehicle = false;
+    }
+    else {
+      this.isVehicle = true;
+    }
+    this.isVehicleRequired = true;
     this.reloadData();
 
    // this.stationName = this.route.snapshot.params['stationName'];
@@ -25,9 +37,15 @@ export class VehicleListComponent implements OnInit {
   reloadData() {
   //  this.patrols = this.vehicleService.getVehiclesList();
   this.stationName = localStorage.getItem("stationName")
+  this.vehicleName = localStorage.getItem("vehicleName")
+  this.isStation = localStorage.getItem("isStation")
+  if(this.isStation==="true") {
   this.patrols = this.vehicleService.getVehiclesForPoliceStation(this.stationName);
   }
-
+  else {
+    this.patrols =  this.vehicleService.getVehicle(this.vehicleName);
+  }
+  }
   deleteVehicle(id: number) {
     this.vehicleService.deleteVehicle(id)
       .subscribe(

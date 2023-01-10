@@ -10,7 +10,8 @@ import { VehicleService } from '../vehicle.service';
 })
 export class UpdateVehicleComponent implements OnInit {
 
-  id: number;
+  id: string;
+  nid: number;
   vehicle: Vehicle;
 
   constructor(private route: ActivatedRoute,private router: Router,
@@ -29,7 +30,7 @@ export class UpdateVehicleComponent implements OnInit {
   }
 
   updateVehicle() {
-    this.vehicleService.updateVehicle(this.id, this.vehicle)
+    this.vehicleService.updateVehicle(this.nid, this.vehicle)
       .subscribe(data => console.log(data), error => console.log(error));
     this.vehicle = new Vehicle();
     this.gotoList();

@@ -1,14 +1,18 @@
 
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Station Name</label>
+    <div class="form-group" >
+      <label for="name">Login using Station Name</label>
       <input type="text" class="form-control" id="stationName" required [(ngModel)]="stationName" name="stationName">
     </div>
-    <button type="submit" (click)="gotoList()" class="btn btn-success">Submit</button>
+  <button type="submit" (click)="gotoList()" class="btn btn-success">Submit</button>
+  <p><br> <br>OR<br> <br> </p>
+  <div class="form-group">
+    <label for="name">Login using Vehicle Name</label>
+    <input type="text" class="form-control" id="vehicleName" required [(ngModel)]="vehicleName" name="vehicleName">
+  </div>
+<button type="submit" (click)="gotoVehicleList()" class="btn btn-success">Submit</button>
   </form>
 </div>
 
-<div [hidden]="!submitted">
-  <!-- <button class="btn btn-success" (click)="newPatrol()">Add</button> -->
-</div>
+

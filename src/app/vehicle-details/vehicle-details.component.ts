@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class VehicleDetailsComponent implements OnInit {
 
-  id: number;
+  id: string;
   vehicle: Vehicle;
 
   constructor(private route: ActivatedRoute,private router: Router,

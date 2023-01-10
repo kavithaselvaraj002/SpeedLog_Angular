@@ -16,8 +16,8 @@ export class VehicleService {
   constructor(private http: HttpClient) { }
   private data = {};  
 
-  getVehicle(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+  getVehicle(vehicleNumber: string): Observable<any> {
+    return this.http.get('http://localhost:8081/vehicle?vehicleNumber='+`${vehicleNumber}`);
   }
 
   createVehicle(vehicle: Object): Observable<Object> {
