@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Vehicle } from '../../src/app/vehicle';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,10 @@ export class VehicleService {
     return this.http.get('http://localhost:8081/vehicle?vehicleNumber='+`${vehicleNumber}`);
   }
 
+  getPatrolByVehicleNumber(vehicleNumber: string): Observable<any> {
+    return this.http.get('http://localhost:8081/patrol/vehicle?patrolNumber='+`${vehicleNumber}`);
+  }
+
   createVehicle(vehicle: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}`, vehicle);
   }
@@ -27,6 +32,19 @@ export class VehicleService {
   updateVehicle(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
+
+  associateVehicleWithPatrol(vehicleName: string, patrolName: string,value:any): Observable<any> {
+   // return this.http.get('http://localhost:8081/patrol/vehicle?patrolNumber='+`${patrolName}`);
+  //}
+   // http://localhost:8081/patrol/vehicle?patrolNumber=test1&vehicleNumber=etest2 
+
+    //http://localhost:8081/patrol/vehicle?patrolNumber=etest2&vehicleNumber=etest2
+      http://localhost:8081/patrol/vehicle?patrolNumber=etest2&vehicleNumber=etest2
+    console.log('http://localhost:8081/patrol/vehicle?patrolNumber='+`${patrolName}`+'&vehicleNumber='+`${vehicleName}`);
+    return this.http.put('http://localhost:8081/patrol/vehicle?patrolNumber='+`${patrolName}`+'&vehicleNumber='+`${vehicleName}`, value);
+   // return value;
+  }
+
 
   deleteVehicle(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });

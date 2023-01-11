@@ -6,19 +6,18 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Id</th>
-          <th>CarNumber</th>
-          <th>carModel</th>
-          <th>color</th>
-          <th>description</th>
-          <th>ownerName</th>
-          <th>vehicleDrivingLicence</th>
-          <th>Actions</th>
+          <th>Car Number</th>
+          <th>Car Model</th>
+          <th>Color</th>
+          <th>Description</th>
+          <th>Owner Name</th>
+          <th>Vehicle Driving Licence</th>
+          <th>View</th>
+          <th *ngIf="isVehicle">Action</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let patrol of patrols | async">
-          <td>{{patrol.id}}</td>
           <td>{{patrol.carNumber}}</td>
           <td>{{patrol.carModel}}</td>
           <td>{{patrol.color}}</td>
@@ -26,6 +25,8 @@
           <td>{{patrol.ownerName}}</td>
           <td>{{patrol.vehicleDrivingLicence}}</td>
           <td><button (click)="viewLocation(patrol.carNumber)" class="btn btn-info" style="margin-left: 10px">View Location</button>
+          </td>
+          <td><button *ngIf="isVehicle" (click)="followVehicle(patrol.carNumber)" class="btn btn-info" style="margin-left: 10px">Follow</button>
           </td>
         </tr>
       </tbody>

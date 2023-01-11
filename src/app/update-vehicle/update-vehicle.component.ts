@@ -21,6 +21,8 @@ export class UpdateVehicleComponent implements OnInit {
     this.vehicle = new Vehicle();
 
     this.id = this.route.snapshot.params['id'];
+    this.updateVehicle();    
+    
     
     this.vehicleService.getVehicle(this.id)
       .subscribe(data => {
@@ -30,14 +32,14 @@ export class UpdateVehicleComponent implements OnInit {
   }
 
   updateVehicle() {
-    this.vehicleService.updateVehicle(this.nid, this.vehicle)
+    this.vehicleService.associateVehicleWithPatrol("etest2","etest2", this.vehicle)
       .subscribe(data => console.log(data), error => console.log(error));
     this.vehicle = new Vehicle();
     this.gotoList();
   }
 
   onSubmit() {
-    this.updateVehicle();    
+   // this.updateVehicle();    
   }
 
   gotoList() {

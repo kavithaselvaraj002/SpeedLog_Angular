@@ -7,7 +7,9 @@ export class Vehicle {
   ownerName: string;
   vehicleDrivingLicence: string;
   lng: number;
-  lat: number
-  vehicleNumber: string
-  vehicleName: string
+  lat: number;
+  vehicleNumber: string;
+  vehicleName: string;
+  stationName: string;
+
 }

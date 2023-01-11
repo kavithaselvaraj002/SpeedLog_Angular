@@ -26,7 +26,7 @@ const routes: Routes = [
  // { path: 'vehicles/:id', component: VehicleListComponent },
   { path: 'vehicles', component: VehicleListComponent },
   { path: 'addVehicle', component: CreateVehicleComponent },
-  { path: 'updateVehicle/:id', component: UpdateVehicleComponent },
+  { path: 'updateVehicle', component: UpdateVehicleComponent },
   { path: 'vehicleDetails/:id', component: VehicleDetailsComponent },
   { path: 'policeStations', component: PoliceStationListComponent },
   { path: 'addPoliceStation', component: CreatePoliceStationComponent },
