@@ -26,34 +26,76 @@ export class AssignedVehicleComponent implements OnInit {
     }
 
     getVehicleByName(vehicleName: string) {
-      this.vehicleService.getPatrolByVehicleNumber(vehicleName)
+      this.vehicleService.getPatrolDetailsByVehicleNumber(vehicleName)
         .subscribe(
           data => {
             this.locations = data;
+            const icon = {
+
+              url: "http://maps.google.com/mapfiles/kml/shapes/cabs.png", // url
+
+              scaledSize: new google.maps.Size(20, 20) // scaled size
+
+          };
             console.log(data);
             for (let location of this.locations) {
               // The marker's position property needs an object like { lat: 0, lng: 0 };
               // Number(location.latitude) is there to convert the string to a number, but if it's a number already, there's no need to cast it further.
-              let latLng = {lat: Number(location.lat), lng: Number(location.lng)};
+              let latLng = {lat: Number(location.vehiclelatitude), lng: Number(location.vehicleLongitude)};
               const marker3 = new google.maps.Marker({
                 position:latLng,
                 map:this.map,
                 title:"test2",
                 label: {
-                  text:"POLICE",
+                  text:location.carNumber,
                   color: "RED",
                   fontWeight:"bold"
               },
-                animation: google.maps.Animation.BOUNCE,
-                icon: 'http://maps.google.com/mapfiles/kml/shapes/cabs.png'
+                //animation: google.maps.Animation.BOUNCE,
+                icon: icon,
               // icon: '//developers.google.com/maps/documentation/javascript/examples/full/images/cabs.png'
               })
+              this.markers.push(marker3);
             }
            // this.reloadData();
           },
           error => console.log(error));
     }
+    getPatrolLocation(vehicleName: string) {
+      this.vehicleService.getPatrolDetailsByVehicleNumber(vehicleName)
+        .subscribe(
+          data => {
+            this.locations = data;
+            const icon = {
 
+              url: "http://maps.google.com/mapfiles/kml/shapes/cabs.png", // url
+
+              scaledSize: new google.maps.Size(20, 20) // scaled size
+
+          };
+            for (let location of this.locations) {
+              // The marker's position property needs an object like { lat: 0, lng: 0 };
+              // Number(location.latitude) is there to convert the string to a number, but if it's a number already, there's no need to cast it further.
+              let latLng = {lat: Number(location.patrolLatitude), lng: Number(location.patrolLongitude)};
+              const marker4 = new google.maps.Marker({
+                position:latLng,
+                map:this.map,
+                title:"test2",
+                label: {
+                  text:location.vehicleNumber,
+                  color: "RED",
+                  fontWeight:"bold"
+              },
+                //animation: google.maps.Animation.BOUNCE,
+                icon: icon,
+              // icon: '//developers.google.com/maps/documentation/javascript/examples/full/images/cabs.png'
+              })
+              this.markers.push(marker4);
+            }
+           // this.reloadData();
+          },
+          error => console.log(error));
+    }
   ngOnInit() {
    // this.getVehicleByName("etest2");
     const secondsCounter = interval(20000);
@@ -65,6 +107,7 @@ secondsCounter.subscribe(n => {
   }
   const vehiclenumber = localStorage.getItem("vehicleNumber")
   this.getVehicleByName(vehiclenumber);
+  this.getPatrolLocation(vehiclenumber);
 });
 
      

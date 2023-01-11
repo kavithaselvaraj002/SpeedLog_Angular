@@ -25,6 +25,11 @@ export class VehicleService {
     return this.http.get('http://localhost:8081/patrol/vehicle?patrolNumber='+`${vehicleNumber}`);
   }
 
+  getPatrolDetailsByVehicleNumber(patrolNumber: string): Observable<any> {
+    return this.http.get('http://localhost:8081/patrol/patrolDetails?patrolNumber='+`${patrolNumber}`);
+  }
+  //http://localhost:8081/patrol/patrolDetails?patrolNumber=test1
+
   createVehicle(vehicle: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}`, vehicle);
   }
@@ -57,6 +62,8 @@ export class VehicleService {
   getVehicleByNumber(carNumber:string):  Observable<any> {
     return this.http.get(`${this.getUrl}`);
   }
+
+
 
   getVehicleByLocations():Observable<any> {
     return this.http.get('http://localhost:8081/vehicle/locations');

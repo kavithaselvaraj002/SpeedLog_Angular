@@ -11,5 +11,9 @@ export class Vehicle {
   vehicleNumber: string;
   vehicleName: string;
   stationName: string;
+  vehiclelatitude: number;
+  vehicleLongitude: number;
+  patrolLatitude:number;
+  patrolLongitude: number
 
 }

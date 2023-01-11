@@ -61,10 +61,9 @@ export class CreateMapComponent implements OnInit {
             this.allLocations = data;
 
             const icon = {
+              url: "https://cdn-icons-png.flaticon.com/512/2343/2343941.png", // url
 
-              url: "http://maps.google.com/mapfiles/kml/shapes/cabs.png", // url
-
-              scaledSize: new google.maps.Size(20, 20) // scaled size
+              scaledSize: new google.maps.Size(35, 35) // scaled size
 
           };
 
@@ -128,6 +127,12 @@ export class CreateMapComponent implements OnInit {
           data => {
 
             this.locations = data;
+            const icon = {
+              url: "https://cdn-icons-png.flaticon.com/512/2343/2343941.png", // url
+
+              scaledSize: new google.maps.Size(35, 35) // scaled size
+
+          };
 
             console.log(data);
 
@@ -149,7 +154,7 @@ export class CreateMapComponent implements OnInit {
 
                 label: {
 
-                  text:"POLICE",
+                  text:location.carNumber,
 
                   color: "RED",
 
@@ -159,11 +164,13 @@ export class CreateMapComponent implements OnInit {
 
                 //animation: google.maps.Animation.BOUNCE,
 
-                icon: 'http://maps.google.com/mapfiles/kml/shapes/cabs.png'
+                icon: icon,
 
               // icon: '//developers.google.com/maps/documentation/javascript/examples/full/images/cabs.png'
 
               })
+
+              this.markers.push(marker3);
 
             }
 

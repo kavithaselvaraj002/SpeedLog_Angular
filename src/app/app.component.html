@@ -23,7 +23,7 @@
   <a *ngIf="!isVehicle" routerLink="maps" class="nav-link" routerLinkActive="active">Map</a>
 </li>
 <li class="nav-item">
-  <a *ngIf="!isVehicle" routerLink="assignedMap" class="nav-link" routerLinkActive="active">Assigned-Vehicle</a>
+  <a *ngIf="isVehicle" routerLink="assignedMap" class="nav-link" routerLinkActive="active">Assigned-Vehicle</a>
 </li>
   </ul>
 </nav>
