@@ -75,6 +75,14 @@ export class VehicleListComponent implements OnInit {
    // this.vehicleService.getVehiclesForPoliceStation(this.stationName);
   // this.vehicle = this.vehicleService.associateVehicleWithPatrol(vehicleNumber,this.vehicleName,this.vehicle)
   this.patrols = this.vehicleService.associateVehicleWithPatrol(vehicleNumber,this.vehicleName,this.vehicle)
+  if(this.isStation==="true") {
+    this.patrols = this.vehicleService.getVehiclesForPoliceStation(this.stationName);
+    }
+    else {
+     // this.patrols =  this.vehicleService.getVehicle(this.vehicleName);
+    // http://localhost:8081/patrol/patrolDetails?patrolNumber=test1
+      this.patrols =  this.vehicleService.getPatrolDetailsByVehicleNumber(this.vehicleName);
+    }
     //this.reloadData();
     //.subscribe(data => console.log(data), error => console.log(error));
    // this.vehicleService.associateVehicleWithPatrol(vehicleNumber,this.vehicleName,this.vehicle);

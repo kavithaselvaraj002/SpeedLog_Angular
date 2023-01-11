@@ -31,10 +31,9 @@ export class CreateSingleMapComponent implements OnInit {
           data => {
             this.locations = data;
             const icon = {
+              url: "https://cdn-icons-png.flaticon.com/512/2343/2343941.png", // url
 
-              url: "http://maps.google.com/mapfiles/kml/shapes/cabs.png", // url
-
-              scaledSize: new google.maps.Size(20, 20) // scaled size
+              scaledSize: new google.maps.Size(35, 35) // scaled size
 
           };
            // console.log(data);

@@ -32,9 +32,9 @@ export class AssignedVehicleComponent implements OnInit {
             this.locations = data;
             const icon = {
 
-              url: "http://maps.google.com/mapfiles/kml/shapes/cabs.png", // url
+              url: "https://cdn-icons-png.flaticon.com/512/2343/2343941.png", // url
 
-              scaledSize: new google.maps.Size(20, 20) // scaled size
+              scaledSize: new google.maps.Size(35, 35) // scaled size
 
           };
             console.log(data);
@@ -68,9 +68,9 @@ export class AssignedVehicleComponent implements OnInit {
             this.locations = data;
             const icon = {
 
-              url: "http://maps.google.com/mapfiles/kml/shapes/cabs.png", // url
+              url: "https://cdn-icons-png.flaticon.com/512/2343/2343941.png", // url
 
-              scaledSize: new google.maps.Size(20, 20) // scaled size
+              scaledSize: new google.maps.Size(35, 35) // scaled size
 
           };
             for (let location of this.locations) {
