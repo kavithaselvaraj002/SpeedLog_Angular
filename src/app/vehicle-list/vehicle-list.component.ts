@@ -46,8 +46,8 @@ export class VehicleListComponent implements OnInit {
   this.patrols = this.vehicleService.getVehiclesForPoliceStation(this.stationName);
   }
   else {
-    this.patrols =  this.vehicleService.getVehicle(this.vehicleName);
-   // this.patrols =  this.vehicleService.getPatrolByVehicleNumber(this.vehicleName);
+   // this.patrols =  this.vehicleService.getVehicle(this.vehicleName);
+    this.patrols =  this.vehicleService.getPatrolByVehicleNumber(this.vehicleName);
   }
   }
   deleteVehicle(id: number) {

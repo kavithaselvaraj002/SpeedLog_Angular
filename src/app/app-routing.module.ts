@@ -15,6 +15,7 @@ import { UpdatePoliceStationComponent } from './update-policeStation/update-poli
 import { CreateMapComponent } from './map-component/create-map.component';
 import { LoginComponent } from './login-component/login.component';
 import { CreateSingleMapComponent } from './create-single-map-component/create-single-map.component';
+import { AssignedVehicleComponent } from './assigned-vehicle-map/assigned-vehicle.component';
 
 const routes: Routes = [
   //{ path: '', redirectTo: 'patrol', pathMatch: 'full' },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'addPoliceStation', component: CreatePoliceStationComponent },
   { path: 'updatePoliceStation/:id', component: UpdatePoliceStationComponent },
   { path: 'policeStationDetails/:id', component: PoliceStationDetailsComponent },
+  { path: 'assignedMap', component: AssignedVehicleComponent },
   { path: 'maps', component: CreateMapComponent },
   { path: 'map', component: CreateSingleMapComponent },
   { path: 'login', component: LoginComponent }

@@ -19,6 +19,7 @@ import { UpdatePoliceStationComponent } from './update-policeStation/update-poli
 import { CreateSingleMapComponent } from './create-single-map-component/create-single-map.component';
 import { CreateMapComponent } from './map-component/create-map.component';
 import { LoginComponent } from './login-component/login.component';
+import { AssignedVehicleComponent } from './assigned-vehicle-map/assigned-vehicle.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { LoginComponent } from './login-component/login.component';
     UpdatePoliceStationComponent,
     CreateMapComponent,
     LoginComponent,
-    CreateSingleMapComponent
+    CreateSingleMapComponent,
+    AssignedVehicleComponent
   ],
   imports: [
     BrowserModule,
