@@ -13,7 +13,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let patrol of patrols | async">
-         <td>{{patrol.carnumber}}</td>
+         <td>{{patrol.carNumber}}</td>
           <td>{{patrol.stationName}}</td>
           <td>
               <button (click)="updatePatrol(patrol.id)" class="btn btn-info" style="margin-left: 10px">View Location</button>
