@@ -60,7 +60,7 @@ export class VehicleService {
   }
 
   getVehicleByNumber(carNumber:string):  Observable<any> {
-    return this.http.get(`${this.getUrl}`);
+    return this.http.get('http://localhost:8081/vehicle/location?carNumber='+`${carNumber}`);
   }
 
 
