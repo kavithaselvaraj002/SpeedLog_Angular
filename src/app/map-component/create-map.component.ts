@@ -38,8 +38,9 @@ export class CreateMapComponent implements OnInit {
 
   markers: google.maps.Marker[] = [];
 
-
-
+  isStation:String = localStorage.getItem("isStation")
+  stationName = localStorage.getItem("stationName")
+  vehicleName = localStorage.getItem("vehicleName")
   //private map  = google.maps.Map;
 
   constructor(private vehicleService: VehicleService,
@@ -199,9 +200,11 @@ secondsCounter.subscribe(n => {
     this.markers[i].setMap(null);
 
   }
-
+  if(this.isStation==="true") {
   this.getVehicleByLocations();
-
+  }else{
+  this.getVehicleByName(this.vehicleName)
+  }
 });
 
 
@@ -214,7 +217,7 @@ secondsCounter.subscribe(n => {
 
     let loader = new Loader({
 
-      apiKey: 'API-KEY'
+      apiKey: 'API-Key'
 
       
 
