@@ -25,10 +25,24 @@ export class VehicleService {
     return this.http.get('http://localhost:8081/patrol/vehicle?patrolNumber='+`${vehicleNumber}`);
   }
 
+  getPatrolByVehicleNumberList(vehicleNumber: string): Observable<any> {
+    return this.http.get('http://localhost:8081/patrol/vehicleList?patrolNumber='+`${vehicleNumber}`);
+  }
+
   getPatrolDetailsByVehicleNumber(patrolNumber: string): Observable<any> {
     return this.http.get('http://localhost:8081/patrol/patrolDetails?patrolNumber='+`${patrolNumber}`);
   }
+
+  getPatrolDetailsByVehicle(patrolNumber: string): Observable<any> {
+    return this.http.get('http://localhost:8081/patrol/patrolDetailForList?patrolNumber='+`${patrolNumber}`);
+  }
+
+ // http://localhost:8081/policeStation/vehicles?policeStationName=Boddentown
   //http://localhost:8081/patrol/patrolDetails?patrolNumber=test1
+
+  getPatrolDetailsByPoliceStation(stationName: string): Observable<any> {
+    return this.http.get('http://localhost:8081/policeStation/vehicles?policeStationName='+`${stationName}`);
+  }
 
   createVehicle(vehicle: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}`, vehicle);

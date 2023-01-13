@@ -77,7 +77,7 @@ secondsCounter.subscribe(n => {
     
    // this.reloadData();
     let loader = new Loader({
-      apiKey: 'API KEY'
+      apiKey: 'api-key'
       
     })
     
