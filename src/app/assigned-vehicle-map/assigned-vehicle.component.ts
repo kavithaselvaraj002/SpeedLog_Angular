@@ -39,16 +39,16 @@ export class AssignedVehicleComponent implements OnInit {
 
           };
             console.log(data);
-            for (let location of this.locations) {
+           // for (let location of this.locations) {
               // The marker's position property needs an object like { lat: 0, lng: 0 };
               // Number(location.latitude) is there to convert the string to a number, but if it's a number already, there's no need to cast it further.
-              let latLng = {lat: Number(location.vehiclelatitude), lng: Number(location.vehicleLongitude)};
+              let latLng = {lat: Number(data.vehiclelatitude), lng: Number(data.vehicleLongitude)};
               const marker3 = new google.maps.Marker({
                 position:latLng,
                 map:this.map,
                 title:"test2",
                 label: {
-                  text:location.carNumber,
+                  text:data.carNumber,
                   color: "RED",
                   fontWeight:"bold"
               },
@@ -57,7 +57,7 @@ export class AssignedVehicleComponent implements OnInit {
               // icon: '//developers.google.com/maps/documentation/javascript/examples/full/images/cabs.png'
               })
               this.markers.push(marker3);
-            }
+         //   }
            // this.reloadData();
           },
           error => console.log(error));
@@ -74,16 +74,16 @@ export class AssignedVehicleComponent implements OnInit {
               scaledSize: new google.maps.Size(35, 35) // scaled size
 
           };
-            for (let location of this.locations) {
+      //      for (let location of this.locations) {
               // The marker's position property needs an object like { lat: 0, lng: 0 };
               // Number(location.latitude) is there to convert the string to a number, but if it's a number already, there's no need to cast it further.
-              let latLng = {lat: Number(location.patrolLatitude), lng: Number(location.patrolLongitude)};
+              let latLng = {lat: Number(data.patrolLatitude), lng: Number(data.patrolLongitude)};
               const marker4 = new google.maps.Marker({
                 position:latLng,
                 map:this.map,
                 title:"test2",
                 label: {
-                  text:location.vehicleNumber,
+                  text:data.patrolNumber,
                   color: "RED",
                   fontWeight:"bold"
               },
@@ -92,31 +92,31 @@ export class AssignedVehicleComponent implements OnInit {
               // icon: '//developers.google.com/maps/documentation/javascript/examples/full/images/cabs.png'
               })
               this.markers.push(marker4);
-            }
+         //   }
            // this.reloadData();
           },
           error => console.log(error));
     }
   ngOnInit() {
    // this.getVehicleByName("etest2");
-    const secondsCounter = interval(100);
+    const secondsCounter = interval(1000);
     //getPatrolByVehicleNumber
 // Subscribe to begin publishing values
 secondsCounter.subscribe(n => {
   for (let i = 0; i < this.markers.length; i++) {
     this.markers[i].setMap(null);
   }
-  const vehiclenumber = localStorage.getItem("vehicleNumber")
+  const vehiclenumber = localStorage.getItem("vehicleName")
   const patrolNumber  = localStorage.getItem("patrolNumber")
-  this.getVehicleByName(patrolNumber);
-  this.getPatrolLocation(patrolNumber);
+  this.getVehicleByName(vehiclenumber);
+  this.getPatrolLocation(vehiclenumber);
 });
 
      
     
    // this.reloadData();
     let loader = new Loader({
-      apiKey: 'AIzaSyDIPjKUb-zHGmG1sqtqkz9bwTQplmzoA2o'
+      apiKey: 'api-key'
       
     })
     

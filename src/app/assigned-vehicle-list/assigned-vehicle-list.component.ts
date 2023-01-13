@@ -42,7 +42,7 @@ export class AssignedVehicleListComponent implements OnInit {
   this.stationName = localStorage.getItem("stationName")
   this.vehicleName = localStorage.getItem("vehicleName")
   this.isStation = localStorage.getItem("isStation")
-  this.patrols = this.vehicleService.getPatrolDetailsByVehicleNumber(this.vehicleName)
+  this.patrols = this.vehicleService.getPatrolDetailsList(this.vehicleName)
   }
   
 

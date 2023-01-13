@@ -10,7 +10,7 @@ export class VehicleService {
 
   private baseUrl = 'http://localhost:8081/vehicle';
   private basePUrl = 'http://localhost:8081/vehicle/all';
-  private getUrl ='http://localhost:8081/vehicle/location?carNumber=etest2';
+  private getUrl ='http://localhost:8081/vehicle/location?carNumber';
   private locationUrl: 'http://localhost:8081/vehicle/locations';
   private locUrl = 'http://localhost:8081/policeStation/vehicles'
   private stationName: string;
@@ -31,6 +31,10 @@ export class VehicleService {
 
   getPatrolDetailsByVehicleNumber(patrolNumber: string): Observable<any> {
     return this.http.get('http://localhost:8081/patrol/patrolDetails?patrolNumber='+`${patrolNumber}`);
+  }
+
+  getPatrolDetailsList(patrolNumber: string): Observable<any> {
+    return this.http.get('http://localhost:8081/patrol/patrolDetailList?patrolNumber='+`${patrolNumber}`);
   }
 
   getPatrolDetailsByVehicle(patrolNumber: string): Observable<any> {

@@ -18,6 +18,7 @@ export class VehicleListComponent implements OnInit {
   vehicleName: string;
   isVehicle: boolean;
   isRequired:boolean;
+  patrolNumber:string;
   vehicle: any;
   isVehicleRequired:boolean;
   constructor(private route: ActivatedRoute,private vehicleService: VehicleService,
@@ -82,11 +83,19 @@ export class VehicleListComponent implements OnInit {
  //   this.router.navigate(['UpdateVehicleComponent']);
    // this.vehicleService.getVehiclesForPoliceStation(this.stationName);
   // this.vehicle = this.vehicleService.associateVehicleWithPatrol(vehicleNumber,this.vehicleName,this.vehicle)
-  this.patrols = this.vehicleService.associateVehicleWithPatrol(vehicleNumber,this.vehicleName,this.vehicle)
-  this.vehicleService.associateVehicleWithPatrol(vehicleNumber,this.vehicleName,this.vehicle).subscribe((response:any)=>{
-    localStorage.setItem("patrolNumber",response.patrolNumber);
+  this.vehicleService.associateVehicleWithPatrol(vehicleNumber,this.vehicleName,this.vehicle).subscribe((data:any)=>{
+    this.vehicle = data;
+    console.log(this.vehicle.patrolNumber)
+    console.log("patrollest");
+    console.log(data.patrolNumber);
+    localStorage.setItem("patrolNumber",data.patrolNumber);
   })
+  
   this.router.navigate(['assignedVehicle']);
+//  this.vehicleService.associateVehicleWithPatrol(vehicleNumber,this.vehicleName,this.vehicle).subscribe((response:any)=>{
+ //   localStorage.setItem("patrolNumber",response.patrolNumber);
+ // })
+ // this.router.navigate(['assignedVehicle']);
     //this.reloadData();
     //.subscribe(data => console.log(data), error => console.log(error));
    // this.vehicleService.associateVehicleWithPatrol(vehicleNumber,this.vehicleName,this.vehicle);
