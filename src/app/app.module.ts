@@ -20,6 +20,7 @@ import { CreateSingleMapComponent } from './create-single-map-component/create-s
 import { CreateMapComponent } from './map-component/create-map.component';
 import { LoginComponent } from './login-component/login.component';
 import { AssignedVehicleComponent } from './assigned-vehicle-map/assigned-vehicle.component';
+import { AssignedVehicleListComponent } from './assigned-vehicle-list/assigned-vehicle-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { AssignedVehicleComponent } from './assigned-vehicle-map/assigned-vehicl
     CreateMapComponent,
     LoginComponent,
     CreateSingleMapComponent,
-    AssignedVehicleComponent
+    AssignedVehicleComponent,
+    AssignedVehicleListComponent
   ],
   imports: [
     BrowserModule,

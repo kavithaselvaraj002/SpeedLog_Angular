@@ -26,6 +26,7 @@ export class AssignedVehicleComponent implements OnInit {
     }
 
     getVehicleByName(vehicleName: string) {
+      
       this.vehicleService.getPatrolDetailsByVehicleNumber(vehicleName)
         .subscribe(
           data => {

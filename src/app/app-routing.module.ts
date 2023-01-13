@@ -16,6 +16,7 @@ import { CreateMapComponent } from './map-component/create-map.component';
 import { LoginComponent } from './login-component/login.component';
 import { CreateSingleMapComponent } from './create-single-map-component/create-single-map.component';
 import { AssignedVehicleComponent } from './assigned-vehicle-map/assigned-vehicle.component';
+import { AssignedVehicleListComponent } from './assigned-vehicle-list/assigned-vehicle-list.component';
 
 const routes: Routes = [
   //{ path: '', redirectTo: 'patrol', pathMatch: 'full' },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'details/:id', component: PatrolDetailsComponent },
  // { path: 'vehicles/:id', component: VehicleListComponent },
   { path: 'vehicles', component: VehicleListComponent },
+  {path:'assignedVehicle', component: AssignedVehicleListComponent},
   { path: 'addVehicle', component: CreateVehicleComponent },
   { path: 'updateVehicle', component: UpdateVehicleComponent },
   { path: 'vehicleDetails/:id', component: VehicleDetailsComponent },
