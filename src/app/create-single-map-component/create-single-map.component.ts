@@ -63,7 +63,7 @@ export class CreateSingleMapComponent implements OnInit {
 
   ngOnInit() {
    // this.getVehicleByName("etest2");
-    const secondsCounter = interval(20000);
+    const secondsCounter = interval(100);
 // Subscribe to begin publishing values
 secondsCounter.subscribe(n => {
   for (let i = 0; i < this.markers.length; i++) {
@@ -77,7 +77,7 @@ secondsCounter.subscribe(n => {
     
    // this.reloadData();
     let loader = new Loader({
-      apiKey: 'api-key'
+      apiKey: 'AIzaSyDIPjKUb-zHGmG1sqtqkz9bwTQplmzoA2o'
       
     })
     

@@ -217,7 +217,7 @@ secondsCounter.subscribe(n => {
 
     let loader = new Loader({
 
-      apiKey: 'API-KEY'
+      apiKey: 'AIzaSyDIPjKUb-zHGmG1sqtqkz9bwTQplmzoA2o'
 
       
 

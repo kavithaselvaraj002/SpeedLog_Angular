@@ -99,7 +99,7 @@ export class AssignedVehicleComponent implements OnInit {
     }
   ngOnInit() {
    // this.getVehicleByName("etest2");
-    const secondsCounter = interval(20000);
+    const secondsCounter = interval(100);
     //getPatrolByVehicleNumber
 // Subscribe to begin publishing values
 secondsCounter.subscribe(n => {
@@ -107,15 +107,16 @@ secondsCounter.subscribe(n => {
     this.markers[i].setMap(null);
   }
   const vehiclenumber = localStorage.getItem("vehicleNumber")
-  this.getVehicleByName(vehiclenumber);
-  this.getPatrolLocation(vehiclenumber);
+  const patrolNumber  = localStorage.getItem("patrolNumber")
+  this.getVehicleByName(patrolNumber);
+  this.getPatrolLocation(patrolNumber);
 });
 
      
     
    // this.reloadData();
     let loader = new Loader({
-      apiKey: 'API-KEY'
+      apiKey: 'AIzaSyDIPjKUb-zHGmG1sqtqkz9bwTQplmzoA2o'
       
     })
     
