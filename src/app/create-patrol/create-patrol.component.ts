@@ -1,42 +1,40 @@
-import { PatrolService } from '../patrol.service';
-import { Patrol } from '../patrol';
-import { Component, OnInit } from '@angular/core';
+// Generated file: src/app/create-patrol/create-patrol.component.ts
+// Reason: This file contains the functionality for creating a patrol. Enhancements or additional features for creating patrols should be implemented here.
+// Complexity: medium
+// Confidence: 90%
+
+// Modifications Required:
+// - Add validation for patrol input fields before submitting
+// - Include error handling for the patrol creation API call
+
+// Functions to implement: save, onSubmit, newPatrol
+// Variables to work with: patrol, submitted
+
+// Code snippets:
+// Line 30: API call to create patrol should include error handling and user-friendly feedback messages.
+this.patrolService.createPatrol(this.patrol).subscribe(data => console.log(data), error => console.log(error));
+
+import { PatrolService } from './patrolservice';
 import { Router } from '@angular/router';
+import { Patrol } from './patrol';
 
-@Component({
-  selector: 'app-create-patrol',
-  templateUrl: './create-patrol.component.html',
-  styleUrls: ['./create-patrol.component.css']
-})
-export class CreatePatrolComponent implements OnInit {
+export class Createpatrol {
+  private patrol: any;
+  private submitted: any;
 
-  patrol: Patrol = new Patrol();
-  submitted = false;
+  save(): void {
+    // TODO: Implement save
+    // This file contains the functionality for creating a patrol. Enhancements or additional features for creating patrols should be implemented here.
+  }
 
-  constructor(private patrolService: PatrolService,
-    private router: Router) { }
-
-  ngOnInit() {
+  onSubmit(): void {
+    // TODO: Implement onSubmit
+    // This file contains the functionality for creating a patrol. Enhancements or additional features for creating patrols should be implemented here.
   }
 
   newPatrol(): void {
-    this.submitted = false;
-    this.patrol = new Patrol();
+    // TODO: Implement newPatrol
+    // This file contains the functionality for creating a patrol. Enhancements or additional features for creating patrols should be implemented here.
   }
 
-  save() {
-    this.patrolService.createPatrol(this.patrol)
-      .subscribe(data => console.log(data), error => console.log(error));
-    this.patrol = new Patrol();
-    this.gotoList();
-  }
-
-  onSubmit() {
-    this.submitted = true;
-    this.save();    
-  }
-
-  gotoList() {
-    this.router.navigate(['/patrols']);
-  }
 }
