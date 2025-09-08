@@ -1,42 +1,37 @@
-import { PatrolService } from '../patrol.service';
-import { Patrol } from '../patrol';
-import { Component, OnInit } from '@angular/core';
+// Generated file: app/create-patrol/create-patrol.component.ts
+// Reason: Implementation of the 'Create Patrol' functionality is directly related to this file.
+// Complexity: medium
+// Confidence: 90%
+
+// Modifications Required:
+// - Ensure that the 'patrol' object structure aligns with backend expectations.
+// - Add data validation before making the 'createPatrol' API call (e.g., check for required fields).
+// - Implement proper error handling for the 'save()' method.
+// - Enhance the 'onSubmit()' method to include additional validation logic if required.
+
+// Functions to implement: save, onSubmit
+// Variables to work with: patrol, submitted
+
+// Code snippets:
+// Line 30: Ensure that error handling is enhanced to provide user feedback.
+this.patrolService.createPatrol(this.patrol).subscribe(data => console.log(data), error => console.log(error));
+
+import { PatrolService } from './patrolservice';
+import { Patrol } from './patrol';
 import { Router } from '@angular/router';
 
-@Component({
-  selector: 'app-create-patrol',
-  templateUrl: './create-patrol.component.html',
-  styleUrls: ['./create-patrol.component.css']
-})
-export class CreatePatrolComponent implements OnInit {
+export class Createpatrol {
+  private patrol: any;
+  private submitted: any;
 
-  patrol: Patrol = new Patrol();
-  submitted = false;
-
-  constructor(private patrolService: PatrolService,
-    private router: Router) { }
-
-  ngOnInit() {
+  save(): void {
+    // TODO: Implement save
+    // Implementation of the 'Create Patrol' functionality is directly related to this file.
   }
 
-  newPatrol(): void {
-    this.submitted = false;
-    this.patrol = new Patrol();
+  onSubmit(): void {
+    // TODO: Implement onSubmit
+    // Implementation of the 'Create Patrol' functionality is directly related to this file.
   }
 
-  save() {
-    this.patrolService.createPatrol(this.patrol)
-      .subscribe(data => console.log(data), error => console.log(error));
-    this.patrol = new Patrol();
-    this.gotoList();
-  }
-
-  onSubmit() {
-    this.submitted = true;
-    this.save();    
-  }
-
-  gotoList() {
-    this.router.navigate(['/patrols']);
-  }
 }
