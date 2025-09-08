@@ -25,6 +25,9 @@ export class CreatePatrolComponent implements OnInit {
   }
 
   save() {
+
+
+    try {
     this.patrolService.createPatrol(this.patrol)
       .subscribe(data => console.log(data), error => console.log(error));
     this.patrol = new Patrol();
@@ -32,11 +35,29 @@ export class CreatePatrolComponent implements OnInit {
   }
 
   onSubmit() {
+
+
+    try {
     this.submitted = true;
     this.save();    
   }
 
   gotoList() {
+
+
+    try {
     this.router.navigate(['/patrols']);
   }
+
+  newPatrol(): void {
+    // TODO: Implement newPatrol
+    // This file already contains the logic for creating patrols. Updates may be needed to align with the ticket requirements or improve functionality.
+    try {
+      // Implementation here
+    } catch (error) {
+      console.error('Error in newPatrol:', error);
+      throw error;
+    }
+  }
+
 }
