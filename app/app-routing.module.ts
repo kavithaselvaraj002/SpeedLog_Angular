@@ -39,6 +39,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+import { FreezeAccountComponent } from './freezeaccountcomponent';
+import { UnfreezeAccountComponent } from './unfreezeaccountcomponent';
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

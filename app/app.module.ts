@@ -39,6 +39,9 @@ import { LoginComponent } from './login-component/login.component';
     CreateSingleMapComponent
   ],
   imports: [
+import { FreezeAccountComponent } from './freezeaccountcomponent';
+import { UnfreezeAccountComponent } from './unfreezeaccountcomponent';
+import { FreezeService } from './freezeservice';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
