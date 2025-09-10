@@ -42,3 +42,14 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+// Generated modifications for app/app-routing.module.ts
+// Verify if the route for 'create-patrol' is correctly configured.
+// Ensure lazy loading optimizations if necessary.
+
+
+// Generated code snippets:
+// Line 10: Ensure that the 'create-patrol' route exists and maps correctly.
+{ path: 'create-patrol', component: CreatePatrolComponent }
+
