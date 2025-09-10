@@ -19,3 +19,19 @@
   <h4>You submitted successfully!</h4>
   <!-- <button class="btn btn-success" (click)="newPatrol()">Add</button> -->
 </div>
+
+
+// Generated modifications for src/app/create-patrol/create-patrol.component.html
+// Add a success notification UI component.
+// Add an error notification UI component for API failures.
+// Ensure all input fields have proper validation feedback.
+// Make all required fields mandatory in the form.
+
+
+// Generated code snippets:
+// Line 0: Success notification to confirm patrol creation.
+<div *ngIf="submitted && !error" class="success">Patrol created successfully!</div>
+
+// Line 0: Error notification for API failures.
+<div *ngIf="error" class="error">Error occurred while creating patrol. Please try again.</div>
+
