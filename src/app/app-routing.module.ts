@@ -46,3 +46,14 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+// Generated modifications for src/app/app-routing.module.ts
+// Verify the 'create-patrol' path is properly configured
+// Add guards or resolvers to validate access or initial data, if needed
+
+
+// Generated code snippets:
+// Line 10: Ensures the 'Create Patrol' feature is navigable in the application
+{ path: 'create-patrol', component: CreatePatrolComponent }
+

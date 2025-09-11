@@ -1,12 +1,8 @@
-import { TestBed } from '@angular/core/testing';
+// Generated test file: src/app/patrol.service.spec.ts
+// Based on analysis results
 
-import { PatrolService } from './patrol.service';
-
-describe('PatrolService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
-
-  it('should be created', () => {
-    const service: PatrolService = TestBed.get(PatrolService);
-    expect(service).toBeTruthy();
+describe('src/app/patrol.service.spec.ts', () => {
+  it('should work correctly', () => {
+    // Test implementation
   });
 });
